@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="utf-8">
+<head>
+  <link rel="icon" type="../../potato.js/images/png" href="../../potato.js/images/img-p.png">
+  <link rel="stylesheet" href="../../potato.js/css/jquery-ui.css"/>
+  <link rel="stylesheet" href="../../potato.js/css/potato.css"/>
+  <link rel="stylesheet" href="jquery.orgchart.css"/>
+
+  <link rel="stylesheet" href="index.css"/>
+  <script type="text/javascript" src="../../potato.js/js/enchant.js"></script>
+  <script type="text/javascript" src="../../potato.js/js/Chart.bundle.js"></script>
+  <script type="text/javascript" src="../../potato.js/js/Chart.utils.js"></script>
+  <script type="text/javascript" src="../../potato.js/js/jquery-3.4.1.js"></script>
+  <script type="text/javascript" src="../../potato.js/js/jquery-ui.js"></script>
+  <script type="text/javascript" src="../../potato.js/js/angular.js"></script>
+  <script type="text/javascript" src="../../potato.js/js/potato.1.5.0.js"></script>
+  <script type="text/javascript" src="chartjs-plugin-labels.js"></script>
+  <script type="text/javascript" src="jquery.mousewheel.js"></script>
+  <script type="text/javascript" src="jquery.orgchart.js"></script>
+  <!--<script type="text/javascript" src="jquery.panzoom.js"></script>-->
+  <script type="text/javascript" src="index.js"></script>
+</head>
+  <body>
+
+	<table style="margin-left:10px;margin-top:10px">
+		<tr>
+			<td style='vertical-align:top;'>
+				<table>
+					<tr>
+						<td>
+							<div class="flipPotato">
+							  <div class="front flipItem">
+								<img class="spotlight" aria-busy="true" style="width: 160px; height:200px;" alt=""  src="images/bruce1.jpg">
+								<p style="font-size:13px;margin-top:-5px">2010年～2020年 日本</p>
+							  </div>
+							  <div class="back flipItem">
+								<img class="spotlight" aria-busy="true" style="width: 130px; height:200px;" alt=""  src="images/bruce2.jpg">
+								<p style="font-size:13px;margin-top:-5px">2020年4月～ ｼﾝｶﾞﾎﾟｰﾙ</p>
+							  </div>
+							</div>
+							<br>
+						</td>
+					</tr>
+				</table>
+				<table id="table-btn" style="display:block">
+					<tr>
+						<td style="display:none">
+							<p style="padding-top:10px">
+							<o-button-pdf
+								hoverId = "btn-hover"
+								hoverText="職務経歴書.pdf"
+								image = "images/img-download.png 25 25"
+								width = "45px"
+								height= "40px"
+								paddingLeft="5px"
+								fontSize="13px"
+								onclick="docDownload()"
+							></o-button-pdf>
+							<a id="doc_iframe" target="_blank"></a>
+						</td>
+            <!--
+						<td>
+							<p style="padding-top:10px">
+							<o-button-line
+								hoverId = "btn-hover"
+								hoverText="Chat with me "
+								image = "images/line-me.png 30 30"
+								width = "45px"
+								height= "40px"
+								paddingLeft="3px"
+								fontSize="13px"
+								toggle="
+									if(potato.toggle['line']=='on'){
+										document.getElementById('div_lineOff').style.display='none';
+										document.getElementById('div_lineOn').style.display='block';
+									}else{
+										document.getElementById('div_lineOff').style.display='block';
+										document.getElementById('div_lineOn').style.display='none';
+									}
+								"
+							></o-button-pdf>
+						</td>
+          -->
+						<td>
+							<p style="padding-top:10px">
+							<o-button-education
+								hoverId = "btn-hover"
+								hoverText="卒業証明書"
+								image = "images/img-education.png 30 30"
+								width = "45px"
+								height= "40px"
+								paddingLeft="3px"
+								fontSize="13px"
+								onclick="linkToEducation()"
+							></o-button-education>
+						</td>
+            <td>
+							<p style="padding-top:10px">
+							<o-button-savedriving
+								hoverId = "btn-hover"
+								hoverText="安全運転　"
+								image = "images/savedriving.png 30 30"
+								width = "45px"
+								height= "40px"
+								paddingLeft="5px"
+								fontSize="13px"
+								onclick="linkToSaveDriving()"
+							></o-button-savedriving>
+						</td>
+						<td>
+							<p style="padding-top:10px">
+							<o-button-englishlevel
+								hoverId = "btn-hover"
+								hoverText="TOEIC試験結果　"
+								image = "images/english.png 30 30"
+								width = "45px"
+								height= "40px"
+								paddingLeft="5px"
+								fontSize="13px"
+								onclick="linkToEnglishLevel()"
+							></o-button-englishlevel>
+						</td>
+            <!--
+						<td>
+							<p style="padding-top:10px">
+							<o-button-facebook
+								hoverId = "btn-hover"
+								hoverText="More about me　"
+								image = "images/facebook.png 25 30"
+								width = "45px"
+								height= "40px"
+								paddingLeft="5px"
+								fontSize="13px"
+								onclick="linkToFaceBook()"
+							></o-button-facebook>
+						</td>
+          -->
+					</tr>
+				</table>
+        <!--
+				<table id="table-btn2" style="margin-top:-15px">
+					<tr>
+
+						<td>
+							<p style="padding-top:10px">
+							<o-button-dummy2
+								width = "45px"
+								height= "40px"
+								paddingLeft="5px"
+								fontSize="13px"
+							></o-button-dummy2>
+						</td>
+						<td>
+							<p style="padding-top:10px">
+							<o-button-dummy3
+								width = "45px"
+								height= "40px"
+								paddingLeft="5px"
+								fontSize="13px"
+							></o-button-dummy3>
+						</td>
+					</tr>
+				</table>
+      -->
+				
+				<div id="div_lineOff" style="margin-top:10px;color:blue;margin-top:5px;font-family:arial;font-size:13px;width:230px">
+					<p>現職は約２０年間在籍しております。</p>
+					<p>最初の１０年間は機械・製品設計開発を担当していましたが、</p>
+					<p>後の１０年間は自社情報管理システム開発者として勤務しています。</p><br>
+					<p>自分で作ったJavaScriptライブラリ<br>
+					<a href="http://potatoscript.github.io/homepage" target="_blank">http://potatoscript.github.io/homepage</a>
+					</p>
+				</div>
+				<!--
+				<br>
+				<iframe width="220" height="110" frameborder="0" allowfullscreen
+					src="https://www.youtube.com/embed/XrzNLFtjt8M?autoplay=1&mute=1">
+				</iframe>
+				-->
+				<br>
+				
+			</td>
+			<td style='vertical-align:top;'>
+				<div id="menu_tabs">
+					<ul class="tabs-menu" >
+						<li><a onclick="hrefClick('one')">
+							<table>
+								<tr>
+									<td style="padding-right:15px;padding-left:5px"><img style="height:25px;width:25px" src="images/particular.png"></td>
+									<td style="vertical-align:top;">履歴書・職務経歴</td>
+								</tr>
+							</table>
+							</a>
+						</li>
+						<li><a onclick="hrefClick('two')">
+							<table>
+								<tr>
+									<td style="padding-right:15px;padding-left:5px"><img style="height:25px;width:25px" src="images/skill.png"></td>
+									<td style="vertical-align:top;">スキルシート</td>
+								</tr>
+							</table>
+							</a>
+						</li>
+						<!--
+						<li><a onclick="hrefClick('three')">
+							<table>
+								<tr>
+									<td style="padding-right:15px;padding-left:5px"><img style="height:25px;width:25px" src="images/product.png"></td>
+									<td style="vertical-align:top;">製品</td>
+								</tr>
+							</table>
+							</a></li>
+						<!--<li><a onclick="hrefClick('four')">Ｑ＆Ａ</a></li>-->
+					</ul>
+					<div class="box-wrapper-menu">
+						<div id="one" class="content-box-menu">
+							<div class="col-one-menu col">
+								<ul id="myUL">
+									<li><span id="caret-basic" class="caret2">基本情報:</span>
+										<ul class="active" >
+											<table>
+												<tr>
+													<td>
+														<table class="table-basic">
+															<tr>
+																<th>氏名 ：</th><td>KS LIM（ﾘﾑ）<br></td>
+															</tr>
+															
+															<tr>
+																<th>年齢 ：</th><td>44歳</td>
+															</tr>
+														
+															<tr>
+																<th>国際 ：</th><td><a target="_blank" href="https://en.wikipedia.org/wiki/Malaysia">ﾏﾚｰｼｱ</a>（今ｼﾝｶﾞﾎﾟｰﾙに在住）<br></td>
+															</tr>
+															<tr>
+																<th>在日期間 ：</th><td>１３年（鳥取県）<br></td>
+															</tr>
+															<tr>
+																<th>会社 ：</th><td>車部品製造業者(在職正社員)<br></td>
+															</tr>
+															<tr>
+																<th>メール ：</th><td><font class="blinkFontxx">potatoscript@yahoo.com</font></td>
+															</tr>
+                              <!--
+															<tr>
+																<th>Skype ID ：</th><td><font class="blinkFont">live:.cid.131a836ac04cfbc4</font></td>
+															</tr>
+                            -->
+														</table>
+													</td>
+													<td>
+														<canvas id="locationChart" width="350" height="220"></canvas>
+													</td>
+												</tr>
+											</table>
+										</ul>
+								   </li>
+								   <li><br><span id="caret2" class="caret2">最終学歴:</span>
+										<ul class="active2">
+											<table id="table_education" class="table-basic">
+												<tr>
+													<th>1997年06月：</th><td>イギリス <a target="_blank" href="https://www.coventry.ac.uk/">Coventry University</a> 大学に留学</td>
+												</tr>
+												<tr>
+													<th>1999年07月：</th><td>一級機械学士優等学位 卒業</td>
+												</tr>
+												<tr>
+													<th>卒業ﾌﾟﾛｼﾞｪｸﾄ：</th><td>MATLAB 言語で振動データから固有振動数を検出のシステムを開発する。</td>
+												</tr>
+												<tr>
+													<th>使用ツール：</th><td>ANSYS、MATLAB、AutoCAD、Microsoft Word・Excel・PowerPoint</td>
+												</tr>
+											</table>
+										</ul>
+									</li>
+									<li><br><span id="caret3" class="caret3">職務経歴：</span>
+										<ul class="nested3">
+											<span class="caretx">2000 年 4 月～2004 年： ｼﾝｶﾞﾎﾟｰﾙ</span>
+												<ul class="nestedx">
+													<table class="table-basic">
+														<tr>
+															<td>■ ｼﾝｶﾞﾎﾟｰﾙ拠点に入社して、３年間製品設計・開発を担当してきました。<br>
+																  <font style="padding-left:10px">生産工程設計・VBAを使って図面管理システムの作成も担当する。<br>
+																  <font style="padding-left:10px">ANSYSを使って治工具の応力分散も分析してきました。
+															</td>
+															<td rowspan=5><img style="border-radius:20px;width:100px;height:150px" src="cavfillout/injection_1_1.jpg" name="rotate2" alt="ゴム注入" ></img></td>
+														</tr>
+														<tr>
+															<td>■ 使用ツール：AutoCAD、Inventor、solidEdge、Excel VBA、ANSYS</td>
+
+														</tr>
+														<tr>
+															<td>■ Working Group 人数：20人（工場作業員200人）</td>
+														</tr>
+														<tr>
+															<td>■ 部署：製品設計部（治工具設計含む）</td>
+														</tr>
+														<tr>
+															<td style="display:none">■ 年収：300 万円++</td>
+														</tr>
+													</table>
+												</ul>
+										</ul>
+										<ul class="nested3">
+											<span class="caretx">2005 年 6 月～2007 年： 日本</span>
+												<ul class="nestedx">
+													<table class="table-basic">
+														<tr>
+															<td>■ 日本拠点に出向して、３年間製品設計・開発を研修してきました。</td>
+														</tr>
+														<tr>
+															<td>■ 使用ツール：CadCeus、solidWork</td>
+														</tr>
+														<tr>
+															<td>■ Working Group 人数：16人（工場作業員300人）</td>
+														</tr>
+														<tr>
+															<td>■ 部署：製品設計部,品質管理部、試作課等</td>
+														</tr>
+														<tr>
+															<td style="display:none">■ 年収：400 万円++</td>
+														</tr>
+													</table>
+												</ul>
+										</ul>
+										<ul class="nested3">
+											<span class="caretx">2008 年 1 月～2010 年： タイ</span>
+												<ul class="nestedx">
+													<table class="table-basic">
+														<tr>
+															<td>■ タイ拠点に出向して、３年間Project Managerとして原価削減活動を担当してきました。</td>
+														</tr>
+														<tr>
+															<td>■ 使用ツール：VBA、Inventor</td>
+														</tr>
+														<tr>
+															<td>■ Working Group 人数：15人（工場作業員500人）</td>
+														</tr>
+														<tr>
+															<td>■ 部署：製品設計部</td>
+														</tr>
+														<tr>
+															<td style="display:none">■ 年収：500 万円++</td>
+														</tr>
+													</table>
+												</ul>
+										</ul>
+										<ul class="nested3">
+											<span class="caretx"><font class="blinkFont">2010 年 6 月～2020 年： 日本</font></span>
+												<ul class="nestedx">
+													<table class="table-basic">
+														<tr>
+															<td>■ 日本拠点に出向して、１０年間工場情報管理システム開発を担当してきました。</td>
+														</tr>
+														<tr>
+															<td>■ 使用ツール：JavaScript、PHP、PostgreSQL、C#、Java、Apache Web Server</td>
+														</tr>
+														<tr>
+															<td>■ Working Group 人数：3人（工場作業員300人）</td>
+														</tr>
+														<tr>
+															<td>■ 部署：生産技術部</td>
+														</tr>
+														<tr>
+															<td style="display:none">■ 年収：600～700 万円++</td>
+														</tr>
+													</table>
+													<table class="table-work">
+														<tr>
+															<th>勤務年</th>
+															<th style="width:500px">内容</th>
+														</tr>
+														<tr>
+															<th>2010～2012年</th>
+															<td>■ ＰＩＭＳ（工場情報管理システム）を提案して、開発を始まる。<br>
+																■ 第一世代のＰＩＭＳをリリースして、本番運用を始まる。<br>
+																■ 使用ツール：JavaScript,PHP,PostgreSQL
+															</td>
+														</tr>
+														<tr>
+															<th>2013～2014年</th>
+															<td>
+																■ 使用ツール：JavaScript,PHP,PostgreSQL,JQuery
+															</td>
+														</tr>
+														<tr>
+															<th>2015～2017年</th>
+															<td>
+																■ 使用ツール：JavaScript,PHP,PostgreSQL,JQuery,C# WinForm
+															</td>
+														</tr>
+														<tr>
+															<th>2017～2019年</th>
+															<td>
+																■ 使用ツール：C# WPF, Java
+															</td>
+														</tr>
+														<tr>
+															<th>2020年</th>
+															<td>
+																■ 使用ツール：Java
+															</td>
+														</tr>
+													</table>
+												</ul>
+										</ul>
+										<ul class="nested3">
+											<span class="caretx">2020 年 4 月～ 　　　： ｼﾝｶﾞﾎﾟｰﾙ</span>
+												<ul class="nestedx">
+													<table class="table-basic">
+														<tr>
+															<td>■ インドネシア拠点に出向して、工場情報管理システム開発を担当する。<br>
+															<font style="padding-left:10px">CORONAの影響で今シンガポールからリモート従業する。
+															</td>
+														</tr>
+														<tr>
+															<td>■ 使用ツール：JavaScript、C#, ASP.NET</td>
+														</tr>
+														<tr>
+															<td>■ Working Group 人数：5人（工場作業員200人）</td>
+														</tr>
+														<tr>
+															<td>■ 部署：IT部</td>
+														</tr>
+														<tr>
+															<td style="display:none">■ 年収：750 万円++</td>
+														</tr>
+													</table>
+												</ul>
+										</ul>
+										
+								  </li>
+								<li><br><span id="caret4" class="caret2">興味:</span>
+										<ul class="active2">
+											<table class="table-basic">
+												<tr>
+													<td>■ Androidアプリ開発 (JAVA言語)<br>
+													
+														<a>My Android App :</a>
+														
+														<a style="margin-left:5px" href="https://play.google.com/store/apps/details?id=com.potato.barcodescanner" target="_blank">Black Box Scanner</a>
+														<div style="margin-left:100px">
+															<iframe  width="220" height="110" frameborder="0" allowfullscreen
+																src="https://www.youtube.com/embed/TFDCa_zXsnE?autoplay=1&mute=1">
+															</iframe>
+														<div>	
+														
+													</td>
+												</tr>
+												<tr>
+													<td>■ 水泳: 毎日１KM</td>
+												</tr>
+												<tr>
+													<td>■ 絵：水彩画・漫画</td>
+												</tr>
+												<tr>
+													<td>■ ゲーム: enchant.js
+													<br>
+													<iframe id="boygirl" scrolling="no" style="overflow:hidden;border:0px;height:600px;width:600px" src="empty.html"></iframe>	
+													</td>
+												</tr>
+											</table>
+										</ul>
+									</li>	
+
+								</ul>
+
+
+								
+
+							</div>
+						</div>
+						<div id="two" style="display:none" class="content-box-menu">
+							<div class="col-one-menu col">
+
+								技術経験<span style="font-size:14px">　　　　　　　<font style="font-size:17px;color:red">◎</font>：実務経験多い ／ <font style="font-size:20px;color:red">○</font>：実務経験有り ／ <font style="font-size:17px;color:red">△</font>：知識有り</span>
+							    <table id="table-skill" class="table-skill">
+									<tr>
+										<th>CAD</th>
+										<td>AutoCAD</td>
+										<td><p>◎</p></td>
+										<td>Inventor</td>
+										<td><p>◎</p></td>
+										<td>SolidWork</td>
+										<td><p>◎</p></td>
+										<td>SolidEdge</td>
+										<td><p>△</p></td>
+										<td>CadCam</td>
+										<td><p>△</p></td>
+									</tr>
+									<tr><td colspan=12 style="height:1px;border:0px solid black"></td></tr>
+									<tr>
+										<th rowspan=2>ＯＳ</th>
+										<td>Windows</td>
+										<td><p>◎</p></td>
+										<td>Android</td>
+										<td><p>△</p></td>
+										<td>IOS</td>
+										<td><p>-</p></td>
+										<td>Unix</td>
+										<td><p>-</p></td>
+										<td>Linux</td>
+										<td><p>-</p></td>
+									</tr>
+									<tr>
+										<td>Mac</td>
+										<td><p>-</p></td>
+										<td>BSD</td>
+										<td><p>-</p></td>
+										<td>Solaris</td>
+										<td><p>-</p></td>
+										<td>ﾘｱﾙﾀｲﾑOS</td>
+										<td><p>-</p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr><td colspan=12 style="height:1px;border:0px solid black"></td></tr>
+									<tr>
+										<th rowspan=6>言語</th>
+										<td>C言語</td>
+										<td><p>△</p></td>
+										<td>Perl</td>
+										<td><p>-</p></td>
+										<td>Objective-C</td>
+										<td><p>-</p></td>
+										<td>Kotlin</td>
+										<td><p>△</p></td>
+										<td></td>
+										<td><p></p></td>
+									</tr>
+									<tr>
+										<td>C++</td>
+										<td><p>△</p></td>
+										<td>Ruby</td>
+										<td><p>-</p></td>
+										<td>C#</td>
+										<td><p>◎</p></td>
+										<td>VBA</td>
+										<td><p>◎</p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Go言語</td>
+										<td><p>-</p></td>
+										<td>JavaScript</td>
+										<td><p>◎</p></td>
+										<td>CSS</td>
+										<td><p>◎</p></td>
+										<td>HTML</td>
+										<td><p>◎</p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>COBOL</td>
+										<td><p>-</p></td>
+										<td>PL/SQL</td>
+										<td><p>-</p></td>
+										<td>Android</td>
+										<td><a href="https://youtu.be/wqUeyF_Xm-s">〇</a></td>
+										<td></td>
+										<td><p></p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Java</td>
+										<td><p>〇</p></td>
+										<td>VB.NET</td>
+										<td><p>△</p></td>
+										<td>Swift</td>
+										<td><p>-</p></td>
+										<td></td>
+										<td><p></p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>PHP</td>
+										<td><p>◎</p></td>
+										<td>ASP.NET</td>
+										<td><p>◎</p></td>
+										<td>SAS</td>
+										<td><p>-</p></td>
+										<td></td>
+										<td><p></p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr><td colspan=12 style="height:1px;border:0px solid black"></td></tr>
+									<tr>
+										<th rowspan=2>DataBase</th>
+										<td>MySQL</td>
+										<td><p>〇</p></td>
+										<td>PostgreSQL</td>
+										<td><p>◎</p></td>
+										<td>NoSQL</td>
+										<td><p>-</p></td>
+										<td>SQL Server</td>
+										<td><p>-</p></td>
+										<td>Access</td>
+										<td><p>〇</p></td>
+									</tr>
+									<tr>
+										<td>Oracle</td>
+										<td><p>-</p></td>
+										<td>Sybase</td>
+										<td><p>-</p></td>
+										<td>DB2</td>
+										<td><p>-</p></td>
+										<td>SQLite</td>
+										<td><p>-</p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr><td colspan=12 style="height:1px;border:0px solid black"></td></tr>
+									<tr>
+										<th rowspan=3>FrameWork / Library</th>
+										<td>Angular</td>
+										<td><p>△</p></td>
+										<td>React</td>
+										<td><p>△</p></td>
+										<td>Potato</td>
+										<td><p>◎</p></td>
+										<td>JQuery.js</td>
+										<td><p>◎</p></td>
+										<td></td>
+										<td><p></p></td>
+									</tr>
+									<tr>
+										<td>Chart.js</td>
+										<td><p>◎</p></td>
+										<td>FusionChart.js</td>
+										<td><p>〇</p></td>
+										<td>Enchant.js</td>
+										<td><p>〇</p></td>
+										<td></td>
+										<td><p></p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Laravel</td>
+										<td><p>-</p></td>
+										<td>CakePHP</td>
+										<td><p>-</p></td>
+										<td>Rails</td>
+										<td><p>-</p></td>
+										<td>Struts</td>
+										<td><p>-</p></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr><td colspan=2 style="height:1px;border:0px solid black"></td></tr>
+									<tr>
+										<th rowspan=2>サーバー</th>
+										<td>Apache</td>
+										<td><p>◎</p></td>
+										<td>IIS</td>
+										<td><p>〇</p></td>
+										<td>Nginx</td>
+										<td><p>-</p></td>
+										<td>LiteSpeed</td>
+										<td><p>-</p></td>
+										<td>Lighttpd</td>
+										<td><p>-</p></td>
+									</tr>
+									<tr>
+										<td>Node.js</td>
+										<td><p>△</p></td>
+										<td></td>
+										<td><p></p></td>
+										<td></td>
+										<td><p></p></td>
+										<td></td>
+										<td><p></p></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</table>
+								<br>
+								<canvas id="skillChart" width="650px" height="300px"></canvas>
+
+							</div>
+						</div>
+						<div id="three" style="display:none" class="content-box-menu">
+							<div class="col-one-menu col"  >
+
+								<div id="div_pims">
+									<table>
+										<tr>
+											<td>
+												<h1 data-text="P I M S">P I M S</h1>
+											</td>
+											<td style="padding-left:60px;vertical-align:top;font-size:15px">
+											    <font style="color:blue" >目的：</font><br>
+												生産進捗や品質状況等の情報<br>
+												を的確に把握することができる<br>
+												システムをつくる。<br>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class="item-hints">
+								  <div class="hint" data-position="4"><!-- is-hint -->
+									<span class="hint-radius"></span>
+									<span class="hint-dot"></span>
+									<div class="hint-content do--split-children">
+									  <p style="color:red;margin-left:-80px;">Plant 工場</p>
+									</div>
+								  </div>
+								</div>
+
+								<div class="item-hints-i">
+								  <div class="hint" data-position="4"><!-- is-hint -->
+									<span class="hint-radius"></span>
+									<span class="hint-dot"></span>
+									<div class="hint-content do--split-children">
+									  <p style="color:red;margin-left:-150px;">Information　情報</p>
+									</div>
+								  </div>
+								</div>
+
+								<div class="item-hints-m">
+								  <div class="hint" data-position="4"><!-- is-hint -->
+									<span class="hint-radius"></span>
+									<span class="hint-dot"></span>
+									<div class="hint-content do--split-children">
+									  <p style="color:red;margin-left:120px;">Management　管理</p>
+									</div>
+								  </div>
+								</div>
+
+								<div class="item-hints-s">
+								  <div class="hint" data-position="4"><!-- is-hint -->
+									<span class="hint-radius"></span>
+									<span class="hint-dot"></span>
+									<div class="hint-content do--split-children">
+									  <p style="color:red;margin-left:100px;">System　システム</p>
+									</div>
+								  </div>
+								</div>
+
+
+								<!--
+								<iframe style="margin-left:100px;border:0px;width:500px;" src="javaScriptCodeStructure.html"></iframe>
+								<br><br>
+								-->
+
+
+								<table>
+									<tr>
+										<td id="menu" style="width:150px;vertical-align:top">
+											<div id="menu-1" class="menu menu-current">日報情報</div>
+											<div id="menu-2" class="menu" style="margin-top:60px">品質情報</div>
+											<div id="menu-3" class="menu" style="margin-top:120px">生産進捗</div>
+											<div id="menu-4" class="menu" style="margin-top:180px">棚卸情報</div>
+											<div id="menu-5" class="menu" style="margin-top:240px">日常点検</div>
+											<div id="menu-6" class="menu" style="margin-top:300px">治具情報</div>
+											<div id="menu-7" class="menu" style="margin-top:360px">組織管理</div>
+										</td>
+										<td>
+											<div id="div-menu-1" class="menu-show">
+												<span class="span-s2">■　日報情報管理システム。</span>
+												<div class="div-s">
+													<table class="table-s" style="margin-left:-50px;">
+														<tr>
+															<th>
+																<img class="img-s" src="images/pims-ver1.png"><br>
+																<img class="img-s" src="../../homepage/OKeypad.gif"><br>
+																 <potato-chart-mybar
+																chartType=Bar
+																stacked=true
+																data='[
+																	["2018年","1","3","4","8"],
+																	["2019年","2","5","7","14"],
+																	["2020年","3","1","4","8"]
+																]'
+																	border="0px solid black"
+
+																	colorIndex="#e3ff7f,#a1a4ff,yellow,orange,green,grey"
+
+																xLabelData=menu1,menu2,menu3
+																xLabelAngle=10
+																	yAxesLabel=""
+
+
+																dataLabel="製造1課,製造2課,製造３課"
+																		labelFontSize=18
+																		label2FontSize=1
+																		legendDisplay=true
+																	legendPosition="bottom"
+																		pointBorderColorIndex="red,blue,yellow,orange,green,grey"
+																		pointBorderWidth="0,0,0"
+																		pointStyle="rect,rectRot,triangle"
+
+																		title="生産実績"
+																	titleDisplay=true
+																		height=330px
+																		width=400px
+
+																	click='return alert(potato.chartYvalue)'
+																  ></potato-chart-mybar>
+															</th>
+															<td>
+																<p>□ 言語：JavaScript,PHP</p>
+																<p>□ バーコードリーダー</p>
+																<p>□ JSON(JavaScript Object Notation)</p>
+																<p>□ ＡＪＡＸ(Asynchronous JavaScript and XML)</p>
+																<p>□ タッチスクリーンキーパッド</p>
+																<p>□ JQuery.js</p>
+																<p>□ Chart.js</p>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div id="div-menu-2" class="menu-hide">
+												<span class="span-s2">■　品質情報管理システム。</span>
+												<div class="div-s">
+													<table class="table-s">
+														<tr>
+															<th>
+																<img class="img-s" style="width:400px" src="images/chart-c.png">
+															</th>
+															<td>
+																<p>□ 言語：C#</p>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div id="div-menu-3" class="menu-hide">
+												<span class="span-s2">■　生産進捗管理システム。</span>
+												<div class="div-s">
+													<table class="table-s">
+														<tr>
+															<th>
+																<I style="font-weight:normal;margin-left:-95px">please try to drag and drop me</I>
+																<o-table-mytable
+																dragdrop='
+																	  var t="drag item ( "+potato.dragVal+" ) from ( "+
+																	  potato.clickRow +" , "+potato.clickCol+" ) to ( "+potato.dropRow+" , "+potato.dropCol+" ) ";
+																	  document.getElementById("mytableResult").innerHTML=t;
+																	  '
+																	width=300px
+																	height=300px
+																	fontSizeTH=15px
+																	fontSizeTD=15px
+																	fontColorTD=red
+																	header="品名,3月,4月,5月"
+																	data='[
+																	  ["商品１","組立","","出荷"],
+																	  ["商品２","検査","梱包",""]
+																	]'
+																	click=myTableClick()
+																	callback=myTableCallback()
+
+																	multipleSelect='
+																	  mark:〇;
+																	  indexCol:1;
+																	  selectCol:0;
+																	  callback:function(potato){
+																		$("#div_cart").html("");
+																		var t="";
+																		for(var i=0;i<potato.length;i++){
+																		   t+=i+1+". "+potato[i]+"<br>";
+																		}
+																		$("#mytableResult").html(t);
+																	  };
+																	'
+																  /></o-table-mytable>
+
+																<div id="mytableResult"></div>
+															</th>
+															<td>
+																<p>□ 言語：JavaScript,PHP</p>
+																<p>□ AJAX、JSON、JQuery</p>
+																<p>□ ドラッグアンドドロップ機能付き</p>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div id="div-menu-4" class="menu-hide">
+												<span class="span-s2">■　棚卸管理システム。</span>
+												<div class="div-s">
+													<table class="table-s">
+														<tr>
+															<th>
+																<img class="img-s" style="width:500px" src="images/system1-4.png">
+															</th>
+															<td>
+																<p>□ 言語：C# WinForm</p>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div id="div-menu-5" class="menu-hide">
+												<span class="span-s2">■　日常点検システム。</span>
+												<div class="div-s">
+													<table class="table-s">
+														<tr>
+															<th>
+																<img class="img-s" style="width:500px" src="images/system1-5.png">
+															</th>
+															<td>
+																<p>□ 言語：JavaScript with Enchant.js (animation)</p>
+															</td>
+														</tr>
+													</table>
+
+												</div>
+											</div>
+											<div id="div-menu-6" class="menu-hide">
+												<span class="span-s2">■　治工具情報管理システム。</span>
+												<div class="div-s">
+													<table class="table-s">
+														<tr>
+															<th>
+
+															</th>
+															<td>
+																<p>□ 言語：Java</p>
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+											<div id="div-menu-7" class="menu-hide">
+												<span class="span-s2">■　組織図管理システム。</span>
+												<div class="div-s">
+													<table class="table-s">
+														<tr>
+														<td>
+																<p style="margin-left:10px">□ jQuery.OrgChart.jsを使います。 </p>
+																<p style="margin-left:10px">□ Drag and Drop機能付きます。 </p>
+																<p style="margin-left:10px">□ Pan and Zoom機能付きます。 </p>
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<div id="chart-container"></div>
+
+															</td>
+														</tr>
+													</table>
+												</div>
+											</div>
+
+										</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+						<div id="four" style="display:none" class="content-box-menu">
+							<div class="col-one-menu col" style="padding-left:0px;font-size:13px">
+								<!--
+								<table>
+									<tr>
+
+										<td id="menu" style="width:150px;vertical-align:top">
+											<div id="menu-1" class="menu menu-current">転職</div>
+											<div id="menu-2" class="menu" style="margin-top:60px">技術</div>
+											<div id="menu-javascript" class="menu" style="margin-top:120px">JavaScript</div>
+											<div id="menu-php" class="menu" style="margin-top:180px">PHP</div>
+											<div id="menu-sql" class="menu" style="margin-top:240px">SQL</div>
+											<div id="menu-c" class="menu" style="margin-top:300px">C#</div>
+											<div id="menu-java" class="menu" style="margin-top:360px">Java</div>
+										</td>
+
+										<td>
+											<div id="div-menu-1" class="menu-show">
+												<p>
+												<span class="span-q">問１．それでは、自己紹介、お願いします。</span><br>
+												<font style="color:blue">答１．はい、マレーシアから参りましたリムと申します。<br>
+												<span style="padding-left:40px">今はシンガポール車部品製造会社に20年に働いています。<br>
+												<span style="padding-left:40px">2010年日本に来て10年間社内システム開発を担当してきました。<br>
+												<span style="padding-left:40px">よろしくお願いいたします。
+												</font>
+												</p>
+												<br>
+												<p>
+												<span class="span-q">問２．どうして日本で転職していますか。</span><br>
+												<font style="color:blue">答２．はい、僕は学校時代から日本のＩＴ技術に興味も持ち。（ゲーム）<br>
+												<span style="padding-left:40px">そして将来ﾌﾟﾛｸﾞﾗﾐﾝｸﾞスキルを向上したいので日本に転職活動をしています。<br>
+
+												</font>
+												</p>
+												<br>
+												<p>
+												<span class="span-q">問３．では、この会社を志望した理由を教えてください。</span><br>
+												<font style="color:blue">答３．</font><br>
+												</p>
+												<br>
+												<p>
+												<span class="span-q">問４．あなたが転職先を選ぶ基準は何でしょうか。</span><br>
+												<font style="color:blue">答４．ふたつあります。まずは仕事内容が今までの経験を活かして戦力になれるかどうかということ。<br>
+												<span style="padding-left:40px">もうひとつは入社後に年収が上がる余地があるかです。<br>
+												<span style="padding-left:40px">自分が活躍できる仕事であることは最優先ですが、<br>
+												<span style="padding-left:40px">5年先・10年先を考えたときに成長できているかを測る基準のひとつが年収だと考えています。
+												</font>
+												</p>
+												<br>
+												<p>
+												<span class="span-q">問５．それでは長所を教えてください。</span><br>
+												<font style="color:blue">答５．私は目標に向かって努力(doryoku)し続けることができます<br>
+												<span style="padding-left:40px">昨年まで20件システムが出来上がりました。<br>
+												<span style="padding-left:40px">問題解決するために毎日深夜まで新し技術を勉強し続けて<br>
+												<span style="padding-left:40px">解決することができました。<br>
+												</font>
+												</p>
+												<br>
+												<p>
+												<span class="span-q">問６．どんなところが自分の短所だと思いますか。</span><br>
+												<font style="color:blue">答６．緊張しすぎることが多いです。<br>
+												<span style="padding-left:40px">例えば、大勢の前でプレゼンする際は、<br>
+												<span style="padding-left:40px">事前準備や練習を何度も何度も行ないます。<br>
+												<span style="padding-left:40px">それでも、本番では緊張してしまうこともありますが、<br>
+												<span style="padding-left:40px">何度も練習しているため、大きな失敗にはつながりません。<br>
+												<span style="padding-left:40px">今後も事前準備や練習を入念に行ない、<br>
+												<span style="padding-left:40px">徐々に自信をつけていければと思っています。<br>
+												</font>
+												</p>
+											</div>
+
+											<div id="div-menu-2" class="menu-hide">
+												<span style="font-size:16px;" class="span-q">
+													Q1. Print number from 1 to 100 with following conditions<br>
+													<font style="padding-left:30px">■ Print "Fizz" if divisible by 3
+												</span>
+												<br>
+												<p style="font-size:16px;font-family:arial">A1. Use recursion method</p>
+												<code>
+													<textarea
+													style="
+															font-size:15px;
+															border:0px;
+															background:white;
+															padding:20px;
+															height:270px;
+															width:250px
+													">
+var m=[];
+var oneTo100 = function(n){
+  if(n>100){
+     return console.log(m);
+  }
+  else if(n%3==0){
+     m.push("Fizz");
+  }
+  else{
+     m.push(n);
+  }
+     oneTo100(n+1);
+  }
+oneTo100(1);
+													</textarea>
+												</code>
+												<br><br>
+
+												<span style="font-size:16px;" class="span-q">
+													Q2. Print the string base on the following conditions
+													<p style="padding-left:30px">■ add "d" if its end at "e"</p>
+													<p style="padding-left:30px">■ add "ied" if its end wit vowels</p>
+													<p style="padding-left:30px">■ else add "ed" </p>
+												</span>
+												<p style="font-size:16px;font-family:arial">A2.</p>
+												<code>
+													<textarea
+													style="
+															font-size:15px;
+															border:0px;
+															background:white;
+															padding:20px;
+															height:310px;
+															width:360px
+													">
+var str = "finish";
+var _e= str.lastIndexOf("e");
+var _y= str.lastIndexOf("y");
+var _v = ["a","i","u","e","o"];
+var chk_v = _v.indexOf(str.charAt(_y-1));
+if(_e!=-1){
+  str=str+"d";
+}else if(_y!=-1){
+  if(chk_v!=-1){
+    str=str+"ed";
+  }else{
+    str=str.slice(0,str.length-1)+"ied";
+  }
+}else{
+  str=str+"ed";
+}
+													</textarea>
+												</code>
+												<br><br>
+
+
+											</div>
+
+											<div id="div-menu-javascript" class="menu-hide">
+												<p>
+												JavaScript 工事中
+												</p>
+											</div>
+
+											<div id="div-menu-php" class="menu-hide">
+												<p>
+												PHP 工事中
+												</p>
+											</div>
+
+											<div id="div-menu-sql" class="menu-hide">
+												<p>
+												SQL 工事中
+												</p>
+											</div>
+
+											<div id="div-menu-c" class="menu-hide">
+												<p>
+												C# 工事中
+												</p>
+											</div>
+
+											<div id="div-menu-java" class="menu-hide">
+												<span style="font-size:16px;" class="span-q">
+													Q1. How to connect to PostgreSQL database JDBC
+												</span>
+												<p style="font-size:16px;font-family:arial">A1.</p>
+												<code>
+													<textarea
+													style="
+															font-size:15px;
+															border:0px;
+															background:white;
+															padding:20px;
+															height:310px;
+															width:360px
+													">
+1. Download PostgreSQL JDBC driver at https://jdbc.postgresql.org/download.html
+2. Move the downloaded jar file to the project folder
+   ①Right click project name→②properties→③Java Build Path
+   ②
+													</textarea>
+												</code>
+												<br><br>
+											</div>
+
+										</td>
+									</tr>
+								</table>
+								-->
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</td>
+		</tr>
+	</table>
+
+
+	<div id="btn-hover"></div>
+
+	<div style="display:none">
+
+          <input type="text" id="parent-node" class="parent-node-group">
+          <ul id="new-nodelist">
+            <li><input type="text" class="new-node"></li>
+          </ul>
+          <input type="text" id="child-node">
+     </div>
+
+
+  </body>
+
+
+
+
+</html>
